@@ -22,10 +22,14 @@ function love.load()
 
 	end
 
+	-- character shoot functino
+
 	enemy = {}
 	enemy.x = 300
 	enemy.y = 300
 	enemy.image = love.graphics.newImage("Oven.png")
+
+	-- enemy move function
 
 end
 
