@@ -9,12 +9,15 @@ end
 
 function love.update()
 
+	character.x = character.x + 1
+
 	-- everything we want to do forever and ever, such as movement
 
 end
 
 function love.draw()
 
+	love.graphics.draw(character.image,character.x,character.y)
 	-- everything we want to see
 
 end
