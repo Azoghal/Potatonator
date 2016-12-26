@@ -65,8 +65,10 @@ function love.update()
 	if enemy.moveCD <= 0 then
 		enemyMove(character)
 	end
+
 	enemyMove2()
 	chrMove()
+	chrShoot()
 
 	for i,e in ipairs(bullets) do 
 		e.x, e.y = e.x + e.vx, e.y + e.vy
@@ -78,6 +80,9 @@ function love.draw()
 
 	love.graphics.draw(character.image,character.x,character.y)
 	love.graphics.draw(enemy.image,enemy.x,enemy.y,angle,1,1,25,25)
+	for i,e in ipairs(bullets) do
+		love.graphics.circle("fill",2,e.x,e.y)
+	end
 
 end
 
