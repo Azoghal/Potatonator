@@ -31,6 +31,12 @@ function love.load()
 
 	-- enemy move function
 
+	function enemyMove(target)
+		tx,ty = target.x,target.y
+	    angle = math.atan2(ty - enemy.y, tx - enemy.x)
+	    enemy.vx, enemy.vy = math.cos(angle), math.sin(angle)
+	end
+
 end
 
 function love.update()
