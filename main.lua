@@ -22,7 +22,10 @@ function love.load()
 
 	end
 
-	
+	enemy = {}
+	enemy.x = 300
+	enemy.y = 300
+	enemy.image = love.graphics.newImage("Oven.png")
 
 end
 
@@ -35,6 +38,7 @@ end
 function love.draw()
 
 	love.graphics.draw(character.image,character.x,character.y)
+	love.graphics.draw(enemy.image,enemy.x,enemy.y)
 
 end
 
