@@ -9,7 +9,18 @@ end
 
 function love.update()
 
-	character.x = character.x + 1
+	if love.keyboard.isDown("w") then
+		character.y = character.y - 1
+	end
+	if love.keyboard.isDown("a") then
+		character.x = character.x - 1
+	end
+	if love.keyboard.isDown("s") then
+		character.y = character.y + 1
+	end
+	if love.keyboard.isDown("d") then
+		character.x = character.x + 1
+	end
 
 	-- everything we want to do forever and ever, such as movement
 
@@ -21,3 +32,4 @@ function love.draw()
 	-- everything we want to see
 
 end
+
