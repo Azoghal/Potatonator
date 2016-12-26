@@ -31,7 +31,7 @@ function love.load()
 		    angle2 = math.atan2(ty2 - character.y, tx2 - character.x)
 		    bullet = {}
 		    bullet.x,bullet.y = character.x,character.y
-		    bullet.vx, bullet.vy = math.cos(angle2), math.sin(angle2)
+		    bullet.vx, bullet.vy = math.cos(angle2)*5, math.sin(angle2)*5
 		    character.CD = 60
 		    table.insert(bullets,bullet)
 		end
@@ -78,10 +78,10 @@ end
 
 function love.draw()
 
-	love.graphics.draw(character.image,character.x,character.y)
+	love.graphics.draw(character.image,character.x,character.y,0,1,1,25,25)
 	love.graphics.draw(enemy.image,enemy.x,enemy.y,angle,1,1,25,25)
 	for i,e in ipairs(bullets) do
-		love.graphics.circle("fill",2,e.x,e.y)
+		love.graphics.circle("fill",e.x,e.y,2)
 	end
 
 end
