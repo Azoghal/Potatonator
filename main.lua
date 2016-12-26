@@ -1,8 +1,17 @@
 function love.load()
+
+	-- everything we want to load into the game b4 it starts// runs only 1 time
+
 end
 
 function love.update()
+
+	-- everything we want to do forever and ever, such as movement
+
 end
 
 function love.draw()
+
+	-- everything we want to see
+
 end
