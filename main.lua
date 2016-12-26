@@ -3,7 +3,10 @@ function love.load()
 	character = {}
 	character.x = 50
 	character.y = 50
+	character.CD = 0
 	character.image = love.graphics.newImage("Potato.png")
+
+	bullets = {}
 
 	function chrMove()
 
@@ -22,7 +25,17 @@ function love.load()
 
 	end
 
-	-- character shoot functino
+	function chrShoot()
+		if love.mouse.isDown(1) and character.CD <= 0 then
+			tx2,ty2 = love.mouse.getPosition()
+		    angle2 = math.atan2(ty2 - character.y, tx2 - character.x)
+		    bullet = {}
+		    bullet.x,bullet.y = character.x,character.y
+		    bullet.vx, bullet.vy = math.cos(angle2), math.sin(angle2)
+		    character.CD = 60
+		    table.insert(bullets,bullet)
+		end
+	end
 
 	enemy = {}
 	enemy.x = 300
@@ -47,12 +60,17 @@ end
 
 function love.update()
 
+	character.CD = character.CD - 1
 	enemy.moveCD = enemy.moveCD - 1
 	if enemy.moveCD <= 0 then
 		enemyMove(character)
 	end
 	enemyMove2()
 	chrMove()
+
+	for i,e in ipairs(bullets) do 
+		e.x, e.y = e.x + e.vx, e.y + e.vy
+	end
 
 end
 
