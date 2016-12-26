@@ -1,5 +1,5 @@
 function love.load()
-
+	character = {}
 	-- everything we want to load into the game b4 it starts// runs only 1 time
 
 end
