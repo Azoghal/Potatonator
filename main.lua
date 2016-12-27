@@ -42,8 +42,16 @@ function love.load()
 	enemy.y = 300
 	enemy.vx = 0
 	enemy.vy = 0
+	enemy.health = 100
 	enemy.moveCD = 0
 	enemy.image = love.graphics.newImage("Oven.png")
+
+	function CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
+  		return x1 < x2+w2 and
+	        x2 < x1+w1 and
+	        y1 < y2+h2 and
+	        y2 < y1+h1
+	end
 
 	function enemyMove(target)
 		tx,ty = target.x,target.y
@@ -80,6 +88,7 @@ function love.draw()
 
 	love.graphics.draw(character.image,character.x,character.y,0,1,1,25,25)
 	love.graphics.draw(enemy.image,enemy.x,enemy.y,angle,1,1,25,25)
+	
 	for i,e in ipairs(bullets) do
 		love.graphics.circle("fill",e.x,e.y,2)
 	end
